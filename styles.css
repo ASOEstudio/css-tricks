@@ -2,7 +2,7 @@ body {
     background-color: #424242;
     margin: 0px;
 }
-section {
+main {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
@@ -13,9 +13,18 @@ section {
     justify-content: center;
     /* background-color: rgba(0,0,0,.25); */
 }
+section {
+    animation: upDownMove 2s infinite;
+}
 button {
     cursor: pointer;
-    animation: simpleRotate 5s infinite;
+    /* animation: upDownMove 2s infinite; */
+}
+button:hover {
+    animation: skewStretch 1s linear;
+}
+button:focus {
+    animation:
 }
 .btn-basic {
     background-color: coral;
@@ -39,15 +48,39 @@ button {
 }
 
 @keyframes simpleRotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
-/* @keyframes upDownMove {
-    0% {
-
-    }
+/* @keyframes upDownMove { 
+    0% { transform: translateY(0); }
+    33% { transform: translateY(-1rem); }
+    66% { transform: translateY(1rem); }
+    99% { transform: translateY(0); }
 } */
+@keyframes upDownMove {
+    0% { transform: translateY(-1rem); }
+    50% { transform: translateY(1rem); }
+    100% { transform: translateY(-1rem); }
+}
+@keyframes skewStretch {
+    0% {
+            transform: skewX(0deg), scaleX(1);
+            opacity: 1;
+        }
+    50% {
+            transform: skewX(30deg) scaleX(1.25);
+            opacity: .8;
+        }
+    60% {
+            transform: skewX(-10deg);
+            opacity: 1;
+        }
+    70% {
+            transform: skewX(5deg);
+            opacity: 1;
+        }
+    100% {
+            transform: skewX(0deg);
+            opacity: 1;
+        }
+}
