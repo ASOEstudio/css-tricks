@@ -13,7 +13,10 @@ main {
     justify-content: center;
     /* background-color: rgba(0,0,0,.25); */
 }
-section {
+/* section {
+    animation: upDownMove 2s infinite;
+} */
+.move-section {
     animation: upDownMove 2s infinite;
 }
 button {
@@ -21,24 +24,38 @@ button {
     /* animation: upDownMove 2s infinite; */
 }
 button:hover {
-    animation: skewStretch 1s linear;
-}
-button:focus {
-    animation:
+    animation:  skewStretchOptimized 1s ease-in-out;
+                /* simpleRotate 1s; */
 }
 .btn-basic {
-    background-color: coral;
+    background-color: cornflowerblue;
     border: unset;
     padding: 1rem 1.5rem;
     border-radius: .25rem;
 }
-.btn-position {
-    /* grid-row-start: 2;
+/* .btn-position {
+    grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
-    grid-column-end: 3; */
+    grid-column-end: 3;
+} */
+.position-1 {
     grid-row: 2 / 3;
     grid-column: 2 / 3;
+}
+.position-2 {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+.position-3 {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+}
+.mouse {
+    height: 50px;
+}
+.scroll-btn {
+    animation: scrollBtnMove 2s infinite;
 }
 .btn-text {
     text-transform: uppercase;
@@ -51,6 +68,9 @@ button:focus {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
+@keyframes simpleRotateOptimized {
+    50% { transform: rotate(360deg); }
+}
 /* @keyframes upDownMove { 
     0% { transform: translateY(0); }
     33% { transform: translateY(-1rem); }
@@ -62,7 +82,7 @@ button:focus {
     50% { transform: translateY(1rem); }
     100% { transform: translateY(-1rem); }
 }
-@keyframes skewStretch {
+/* @keyframes skewStretch {
     0% {
             transform: skewX(0deg), scaleX(1);
             opacity: 1;
@@ -82,5 +102,35 @@ button:focus {
     100% {
             transform: skewX(0deg);
             opacity: 1;
+        }
+} */
+@keyframes skewStretchOptimized {
+    50% {
+            transform: skewX(30deg) scaleX(1.25);
+            opacity: .8;
+        }
+    60% {
+            transform: skewX(-10deg);
+        }
+    70% {
+            transform: skewX(5deg);
+        }
+}
+@keyframes scrollBtnMove {
+    0% {
+            transform: translateY(0rem);
+            opacity: 0;
+        }
+    35% {
+            transform: translateY(-.5rem);
+            opacity: 1;
+    }
+    85% {
+            transform: translateY(3em), scaleY(5);
+            opacity: .6;
+        }
+    100% {
+            transform: translateY(4rem);
+            opacity: 0;
         }
 }
