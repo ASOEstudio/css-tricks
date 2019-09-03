@@ -55,7 +55,7 @@ button:hover {
     height: 50px;
 }
 .scroll-btn {
-    animation: scrollBtnMove 2s infinite;
+    animation: scrollBtnMoveOptimized 1.75s infinite;
 }
 .btn-text {
     text-transform: uppercase;
@@ -116,7 +116,7 @@ button:hover {
             transform: skewX(5deg);
         }
 }
-@keyframes scrollBtnMove {
+/* @keyframes scrollBtnMove {
     0% {
             transform: translateY(0rem);
             opacity: 0;
@@ -132,5 +132,21 @@ button:hover {
     100% {
             transform: translateY(4rem);
             opacity: 0;
+        }
+} */
+@keyframes scrollBtnMoveOptimized {
+    0%, 70%, 100% {
+             opacity: 0;
+    }
+    35% {
+            transform: translateY(-.5rem);
+            opacity: 1;
+    }
+    50% {
+            transform: translateY(3em), scaleY(5);
+            opacity: .6;
+        }
+    70% {
+            transform: translateY(4rem);
         }
 }
